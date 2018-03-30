@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "xyz.luan.games.test"
+        applicationId "xyz.luan.games.sample"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1

@@ -1,4 +1,4 @@
-package xyz.luan.games.test;
+package xyz.luan.games.sample;
 
 import android.app.AlertDialog;
 import android.content.Intent;

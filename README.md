@@ -17,6 +17,18 @@ Google has two consoles: the play console is related to publishing games on the 
 
 Firstly, create a blank project with android-studio (you can use their wizards dialog for that).
 
+Select a package name and save it somewhere (you will need it later). Make sure these three places match the same package name:
+
+ * The folder structure (app/src/main/java/your/package/name);
+ * The actual java files (`package your.package.name`);
+ * Your AndroidManifest (app/src/main/AndroidManifest.xml), in the `manifest` tag, the `package` property; something like:
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="your.package.name">
+```
+
+As per Java convention, you should always select a package name that represent a domain that your own (but reversed); e.g., com.yorudomain.subdomain.anything.
+
 Then, you must generate a new keystore; just run:
 
 ```bash
@@ -34,6 +46,28 @@ Finally, you need to get the SHA1 key associated with the key you generated; for
 ```bash
     keytool -list -v -keystore test.keystore -alias test -storepass 123test -keypass 123test 2> /dev/null | grep "SHA1:" | rex '\s*SHA1: (.*)' '$1'
 ```
+
+After generating the key, you must setup your build.gradle file to use the key to sign your app. You will need to put the SHA1 you generated in the Play Console for configuration, and only an app signed with this key will work. Even in debug mode. Therefore, add the following for your internal build.gradle file (app/build.gradle):
+
+```groovy
+    signingConfigs {
+        debug {
+            storeFile file("/home/luan/projects/play-auth/secret/test.keystore")
+            storePassword '123test'
+            keyAlias 'test'
+            keyPassword '123test'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+```
+
+Be sure to put the path to your key (better if it's a relative path, but never commit the key itself to a public repo), the passwords you selected, and the key alias (must be the same).
+
+This will add the key just for debugging; for release, add another build type named release (you probably already have one, so just add the signingConfig property. You can use the same key, but it's ideal to have two (so that you can share the debug with everyone in your team and keep the release one very well secured).
 
 ## Step 1. Sign in to the Google Play Console
 
@@ -57,7 +91,7 @@ Then go to:
 
 Then
 
-> Authorize app now -> put your SHA1
+> Authorize app now -> put your SHA1 and package name
 
 Here you can get your clientId and appId; save those somewhere safe.
 

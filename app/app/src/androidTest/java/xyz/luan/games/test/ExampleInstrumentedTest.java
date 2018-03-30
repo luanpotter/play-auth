@@ -1,4 +1,4 @@
-package xyz.luan.games.test;
+package xyz.luan.games.sample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("xyz.luan.games.test", appContext.getPackageName());
+        assertEquals("xyz.luan.games.sample", appContext.getPackageName());
     }
 }
