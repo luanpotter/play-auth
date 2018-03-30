@@ -1,11 +1,11 @@
-# How to use Google Play Games auth?
+# How to use Google Play Games authentication?
 ## Intro
 
-Doing this is a hassle; i've tryed for many days to make it work. This is a consolidation of my results.
+Doing this is a hassle; i've tryed for many days to make it work. This is a consolidation of my results so far.
 
-Following this: https://developers.google.com/games/services/console/enabling
+I'm basicall following [this](https://developers.google.com/games/services/console/enabling), but I'm adding more depth, details, explanations, and adding anything additional that you need in the same file.
 
-WIP: IT HASNT WORKED YET!
+**WIP**: This tutorial is a work in progress and should not be used yet! I'm still learning stuff. But feel free to try it or to help me make it better.
 
 ## Concepts
 
