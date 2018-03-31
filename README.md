@@ -110,22 +110,23 @@ Create a ids file (app/src/main/res/values/ids.xml), with the following content:
 </resources>
 ```
 
-Then edit your manifest file (app/src/main/AndroidManifest.xml) and add the following lines (WHERE?):
+Then edit your manifest file (app/src/main/AndroidManifest.xml) and add the following lines inside the `<application>` tag:
 
 ```xml
 <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
 ```
 
-Add the following to your gradle file (build.gradle) (WHICH ONE?):
+Add the following to your gradle files; in the external (build.gradle), add that in the root:
 
-```grovy
-deps internal
-    implementation "com.google.android.gms:play-services-games:${gms_library_version}"
-    implementation "com.google.android.gms:play-services-auth:${gms_library_version}"
-root external
-
+```groovy
 ext {
     gms_library_version = '11.6.2'
 }
+```
+
+On the internal one (app/build.gradle), add this to the dependencies section:
+```groovy
+    implementation "com.google.android.gms:play-services-games:${gms_library_version}"
+    implementation "com.google.android.gms:play-services-auth:${gms_library_version}"
 ```
