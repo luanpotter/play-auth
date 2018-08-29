@@ -1,4 +1,11 @@
 # How to use Google Play Games authentication?
+
+**NO LONGER MANTAINED**
+
+This eventually became [this](https://github.com/luanpotter/play_games) plugin for Flutter. There you can find updated tutorials and such.
+
+I'll keep this for reference if someone still wants to see.
+
 ## Intro
 
 Doing this is a hassle; i've tryed for many days to make it work. This is a consolidation of my results so far.
