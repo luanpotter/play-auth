@@ -1,6 +1,6 @@
 # How to use Google Play Games authentication?
 
-**NO LONGER MANTAINED**
+**NO LONGER MAINTAINED**
 
 This eventually became [this](https://github.com/luanpotter/play_games) plugin for Flutter. There you can find updated tutorials and such.
 
